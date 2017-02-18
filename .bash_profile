@@ -1,3 +1,12 @@
+export DISPLAY="localhost:0"
+
+export PGHOST="localhost"
+export PGUSER="postgres"
+export PGPASSWORD="smartcar"
+export NODE_ENV="development"
+
+export DOCKER_HOST="tcp://0.0.0.0:2375"
+
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
