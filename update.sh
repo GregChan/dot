@@ -1,4 +1,5 @@
-MY_PATH="`dirname \"$0\"`/"
+DOT_PATH="`dirname \"$0\"`/"
 
-cp ~/.vimrc $MY_PATH
-cp ~/.bash_profile $MY_PATH
+cp ~/.vimrc $DOT_PATH
+cp ~/.bash_profile $DOT_PATH
+cp ~/.tmux.conf $DOT_PATH
