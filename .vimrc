@@ -28,7 +28,7 @@ call plug#end()
 set background=dark
 let base16colorspace=256
 
-colorscheme base16-solarized-dark
+colorscheme base16-solarized-light
 
 "Airline
 set laststatus=2
@@ -64,6 +64,7 @@ let g:ctrlp_working_path_mode=0
 "Nerd Tree
 let NERDTreeShowHidden=1
 let NERDTreeWinPos="left"
+map <C-j> :NERDTreeToggle<CR>
 
 " Strip Whitespace on Save
 autocmd BufWritePre * :call StripTrailingWhitespaces()
@@ -78,4 +79,5 @@ endfunction
 
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
+
 
