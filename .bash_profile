@@ -29,8 +29,12 @@ export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-
-base16_solarized-light
 #base16_solarized-dark
+base16_solarized-light
 
 export PATH=~/.local/bin:$PATH
+export PATH=~/.npm-global/bin:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/gregchan/.sdkman"
+[[ -s "/home/gregchan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/gregchan/.sdkman/bin/sdkman-init.sh"
