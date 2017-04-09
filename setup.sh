@@ -1,4 +1,5 @@
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 DOT_PATH="`dirname \"$0\"`"
 VIM_PATH="$DOT_PATH/.vimrc"

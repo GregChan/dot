@@ -25,7 +25,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/syntastic'
 call plug#end()
 
-set background=dark
+#set background=dark
 let base16colorspace=256
 
 colorscheme base16-solarized-light
