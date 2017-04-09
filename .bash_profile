@@ -17,6 +17,10 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # enable 256 colors
 export TERM="xterm-256color"
 
+# set git editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # get git branch
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
