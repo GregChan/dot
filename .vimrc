@@ -25,10 +25,10 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/syntastic'
 call plug#end()
 
-#set background=dark
+set background=light
 let base16colorspace=256
 
-colorscheme base16-solarized-light
+colorscheme solarized
 
 "Airline
 set laststatus=2
