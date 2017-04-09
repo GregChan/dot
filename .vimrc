@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/syntastic'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 set background=light
