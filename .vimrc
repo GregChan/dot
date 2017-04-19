@@ -29,12 +29,13 @@ call plug#end()
 set background=light
 let base16colorspace=256
 
-colorscheme solarized
+"colorscheme solarized
+colorscheme base16-solarized-light
 
 "Airline
 set laststatus=2
 set showtabline=2
-let g:airline_theme='murmur'
+let g:airline_theme='base16'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_left_alt_sep=''
@@ -57,10 +58,11 @@ let g:syntastic_javascript_eslint_args=['--cache']
 let g:ctrlp_show_hidden=1
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git$|\*/node_modules\|log\',
+  \ 'dir': '\.git|node_modules|log\',
   \ 'file': '\.swp|\.dat|\.DS_Store'
   \ }
 let g:ctrlp_working_path_mode=0
+let g:ctrlp_max_files=1000000000
 
 "Nerd Tree
 let NERDTreeShowHidden=1
