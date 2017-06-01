@@ -13,6 +13,12 @@ set shiftwidth=2
 set expandtab
 set splitright
 
+"auto relaod vimrc when it changes
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
 "Plug
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
@@ -26,7 +32,8 @@ Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
-set background=light
+"set background=light
+set background=dark
 let base16colorspace=256
 
 "colorscheme solarized
@@ -58,7 +65,7 @@ let g:syntastic_javascript_eslint_args=['--cache']
 let g:ctrlp_show_hidden=1
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git\|node_modules\|log\|\.gradle\',
+  \ 'dir': '\.git\|node_modules\|log\|\.gradle\|bower_components\',
   \ 'file': '\.swp|\.dat|\.DS_Store|\.swo'
   \ }
 let g:ctrlp_working_path_mode=0
@@ -82,5 +89,3 @@ endfunction
 
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
-
-

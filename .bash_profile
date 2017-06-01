@@ -35,10 +35,13 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 #base16_solarized-dark
 base16_solarized-light
+#base16_solarized-dark
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.dot/bin:$PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/gregchan/.sdkman"
 [[ -s "/home/gregchan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/gregchan/.sdkman/bin/sdkman-init.sh"
+
