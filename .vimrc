@@ -13,6 +13,11 @@ set shiftwidth=2
 set expandtab
 set splitright
 
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
 "auto relaod vimrc when it changes
 augroup reload_vimrc " {
     autocmd!
@@ -37,7 +42,7 @@ set background=dark
 let base16colorspace=256
 
 "colorscheme solarized
-colorscheme base16-solarized-light
+colorscheme base16-solarized-dark
 
 "Airline
 set laststatus=2
