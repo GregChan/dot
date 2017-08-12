@@ -3,12 +3,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 DOT_PATH="`dirname \"$0\"`"
-VIM_PATH="$DOT_PATH/../.vimrc"
-BASH_PROFILE_PATH="$DOT_PATH/../.bash_profile"
-TMUX_PATH="$DOT_PATH/../.tmux.conf"
+VIM_PATH=$(realpath "$DOT_PATH/../.vimrc")
+BASH_PROFILE_PATH=$(realpath "$DOT_PATH/../.bash_profile")
+TMUX_PATH=$(realpath "$DOT_PATH/../.tmux.conf")
 BIN_PATH=$(realpath "$DOT_PATH")
 
-cp $VIM_PATH ~/
-cp $BASH_PROFILE_PATH ~/
-cp $TMUX_PATH ~/
+ln -s $VIM_PATH ~/
+ln -s $BASH_PROFILE_PATH ~/
+ln -s $TMUX_PATH ~/
 mkdir -p ~/.dot && ln -s $BIN_PATH ~/.dot/bin
