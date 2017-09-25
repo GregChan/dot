@@ -1,5 +1,5 @@
 # stterm display
-export DISPLAY="localhost:0"
+# export DISPLAY="localhost:0"
 
 # work postgres variables
 export PGHOST="localhost"
@@ -33,8 +33,8 @@ export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-#base16_solarized-dark
-base16_solarized-light
+base16_solarized-dark
+#base16_solarized-light
 #base16_solarized-dark
 
 export PATH=~/.local/bin:$PATH
@@ -48,3 +48,11 @@ export SDKMAN_DIR="/home/gregchan/.sdkman"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function _update_ps1() {
+    PS1="$(powerline-shell $?)"
+}
+
+if [ "$TERM" != "linux" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
