@@ -35,6 +35,7 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
+Plug 'w0rp/ale'
 call plug#end()
 
 "set background=light
@@ -42,7 +43,8 @@ set background=dark
 let base16colorspace=256
 
 "colorscheme solarized
-colorscheme base16-solarized-dark
+"colorscheme base16-solarized-dark
+colorscheme base16-solarized-light
 
 "Airline
 set laststatus=2
@@ -76,6 +78,20 @@ let g:ctrlp_max_files=1000000000
 let NERDTreeShowHidden=1
 let NERDTreeWinPos="left"
 map <C-j> :NERDTreeToggle<CR>
+
+"" ALE Settings
+
+""" Lint Settings
+let g:ale_sign_column_always=1
+let g:ale_javascript_eslint_use_global=1
+let g:ale_javascript_eslint_options='--cache'
+let g:ale_javascript_eslint_executable='eslint_d'
+
+""" Fix Settings
+let g:ale_fix_on_save=1
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'remove_trailing_lines'],
+\ }
 
 " Strip Whitespace on Save
 autocmd BufWritePre * :call StripTrailingWhitespaces()

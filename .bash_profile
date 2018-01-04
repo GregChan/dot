@@ -1,6 +1,9 @@
 # stterm display
 # export DISPLAY="localhost:0"
 
+# set edit mode to vi
+set -o vi
+
 # work postgres variables
 export PGHOST="localhost"
 export PGUSER="postgres"
@@ -18,7 +21,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export TERM="xterm-256color"
 
 # set git editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # get git branch
@@ -56,3 +59,5 @@ function _update_ps1() {
 if [ "$TERM" != "linux" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
+
+export PATH=~/projects/bin:$PATH
