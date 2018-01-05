@@ -33,7 +33,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 Plug 'w0rp/ale'
 call plug#end()
@@ -56,13 +55,6 @@ let g:airline#extensions#tabline#left_sep=''
 let g:airline#extensions#tabline#left_alt_sep=''
 let g:airline#extensions#tabline#right_sep=''
 let g:airline#extensions#tabline#right_alt_sep=''
-
-"Syntastic Setting
-let g:syntastic_check_on_wq=1
-let g:syntastic_auto_loc_list=2
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_exe='eslint_d'
-let g:syntastic_javascript_eslint_args=['--cache']
 
 "CtrlP Setting
 let g:ctrlp_show_hidden=1

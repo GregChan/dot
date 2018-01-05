@@ -28,7 +28,8 @@ node:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
 pip:
-	curl -o https://bootstrap.pypa.io/get-pip.py | python
+	curl -O https://bootstrap.pypa.io/get-pip.py | python
+	rm get-pip.py
 
 powerline:
 	pip install powerline-shell
