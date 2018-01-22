@@ -28,7 +28,8 @@ node:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
 pip:
-	curl -O https://bootstrap.pypa.io/get-pip.py | python
+	curl -O https://bootstrap.pypa.io/get-pip.py
+	python get-pip.py
 	rm get-pip.py
 
 powerline:
@@ -44,6 +45,11 @@ vim:
 	add-apt-repository ppa:neovim-ppa/stable
 	apt-get update
 	apt-get install neovim
+
+wallpaper:
+	add-apt-repository ppa:whizzzkid/bingwallpaper
+	apt update
+	apt install bingwallpaper
 
 xclip:
 	apt install xclip
