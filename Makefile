@@ -39,10 +39,16 @@ fonts:
 	./fonts/install.sh
 	# clean-up a bit
 	rm -rf fonts
+
 git:
 	apt install git
 	git config --global user.name "Greg Chan"
 	git config --global user.email "gregorywarrenchan@gmail.com"
+
+ngrok:
+	curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+	unzip ngrok-stable-linux-amd64.zip
+	rm ngrok-stable-linux-amd64.zip
 
 node:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
