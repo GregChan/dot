@@ -17,6 +17,8 @@ install-dev-tools:
 	make node
 	make pgcli
 	make ngrok
+	make nmap
+	make net-tools
 
 setup:
 	./bin/dot-setup
@@ -85,6 +87,12 @@ ngrok:
 	curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 	unzip ngrok-stable-linux-amd64.zip
 	rm ngrok-stable-linux-amd64.zip
+
+nmap:
+	sudo apt install nmap
+
+net-tools:
+	sudo apt install net-tools
 
 node:
 	curl -L https://git.io/n-install | bash
