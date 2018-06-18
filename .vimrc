@@ -34,6 +34,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'altercation/vim-colors-solarized'
+Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 call plug#end()
 
