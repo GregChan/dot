@@ -90,6 +90,18 @@ git:
 gnome-tweak-tool:
 	sudo apt install gnome-tweak-tool
 
+gradle:
+	sudo apt install gradle
+
+i3:
+	sudo apt install i3
+
+java:
+	sudo apt-get remove --purge 'openjdk8*'
+	sudo add-apt-repository --yes --update ppa:webupd8team/java
+	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
+	sudo apt install oracle-java8-installer oracle-java8-set-default
+
 ngrok:
 	curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 	unzip ngrok-stable-linux-amd64.zip
@@ -117,6 +129,9 @@ powerline:
 
 tmux:
 	apt install tmux
+
+tree:
+	apt install tree
 
 vim:
 	# install vim
