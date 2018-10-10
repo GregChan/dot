@@ -87,6 +87,11 @@ git:
 	git config --global user.name "Greg Chan"
 	git config --global user.email "gregorywarrenchan@gmail.com"
 
+go:
+	curl -O https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz
+	tar -C /usr/local -xzf go*.*.*linux-amd64.tar.gz
+	rm go*.*.*.tar.gz
+
 gnome-tweak-tool:
 	sudo apt install gnome-tweak-tool
 
