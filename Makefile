@@ -45,6 +45,9 @@ ansible:
 	sudo apt update
 	sudo apt install ansible
 
+cmake:
+	sudo apt install cmake
+
 curl:
 	apt install curl
 
@@ -95,6 +98,9 @@ go:
 gnome-tweak-tool:
 	sudo apt install gnome-tweak-tool
 
+gplusplus:
+	sudo apt install g++
+
 gradle:
 	sudo apt install gradle
 
@@ -128,6 +134,19 @@ pip:
 	curl -O https://bootstrap.pypa.io/get-pip.py
 	python get-pip.py
 	rm get-pip.py
+
+polybar:
+	sudo apt install cmake cmake-data pkg-config
+	sudo apt install libcairo2-dev
+	sudo apt install libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev
+	sudo apt install python-xcbgen xcb-proto
+	sudo apt install libxcb-image0-dev
+	sudo apt install libxcb-ewmh-dev libxcb-icccm4-dev
+	sudo apt install libasound2-dev
+	sudo apt install libpulse-dev
+	sudo apt install libnl-genl-3-dev
+	git clone --branch 3.2 --recursive https://github.com/jaagr/polybar
+	cd polybar && ./build.sh
 
 powerline:
 	pip install powerline-shell

@@ -1,0 +1,165 @@
+[colors]
+background = #222
+background-alt = #444
+
+foreground = #dfdfdf
+foreground-alt = #555
+
+primary = #2e9bda
+alert = #bd2c40
+
+[bar/default]
+
+monitor = eDP-1
+
+width = 100%
+height = 22
+
+background = #222
+
+# fonts
+font-0 = fixed:pixelsize=10;2
+
+# bar padding
+padding-right = 2
+
+# module padding
+module-margin-left = 1
+module-margin-right = 2
+
+# module layout
+modules-left = i3
+modules-right = filesystem memory cpu alsa wireless-network battery date
+
+# positioning
+bottom = true
+
+[module/alsa]
+type = internal/alsa
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+format-muted = Muted
+
+label-volume = Volume: %percentage%%
+format-volume = <label-volume>
+
+[module/battery]
+type = internal/battery
+
+time-format = %H:%M
+
+full-at = 98
+
+battery = BAT0
+adapter = ADP1
+
+poll-interval = 1
+
+label-discharging = Battery %percentage%%
+format-discharging = <label-discharging>
+
+label-charging = Charging %percentage%%
+format-charging = <label-charging>
+
+format-full = Full
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+label = CPU %percentage%%
+
+format = <label>
+
+[module/date]
+type = internal/date
+
+date = %Y-%m-%d%
+time = %H:%M:%S
+
+label = %date% %time%
+format = <label>
+
+[module/filesystem]
+type = internal/fs
+interval = 10
+
+mount-0 = /
+
+label-mounted = %free%
+label-unmounted = %mountpoint% not mounted
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.primary}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/memory]
+type = internal/memory
+label = Memory: %percentage_used%% used, %percentage_free%% free
+format = <label>
+
+[module/wireless-network]
+type = internal/network
+interface = wlp4s0b1
+
+interval = 1
+
+label-connected = Wifi: %signal%% %essid%
+format-connected = <label-connected>
