@@ -48,6 +48,10 @@ ansible:
 cmake:
 	sudo apt install cmake
 
+compton:
+	sudo apt install compton
+
+
 curl:
 	apt install curl
 
@@ -126,6 +130,9 @@ net-tools:
 
 node:
 	curl -L https://git.io/n-install | bash
+
+nvidia-prime:
+	sudo apt install nvidia-prime
 
 pgcli:
 	sudo apt install pgcli
