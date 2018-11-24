@@ -171,6 +171,9 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume    exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 client.focused #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused #333333 #333333 #888888 #292d2e
@@ -180,3 +183,5 @@ exec always feh --bg-scale ~/Pictures/chromecast/$(ls ~/Pictures/chromecast | so
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
 # exec xrandr --output eDP-1 --mode 2560x1440
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec compton --config ~/.config/compton.conf
