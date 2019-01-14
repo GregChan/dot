@@ -9,3 +9,6 @@ xorg:
 
 alacritty:
 	sudo pacman -S alacritty
+
+firefox:
+	sudo pacman -S firefox
