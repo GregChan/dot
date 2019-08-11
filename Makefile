@@ -1,5 +1,5 @@
 install-tools:
-	make tmux
+	# make tmux
 	make curl
 	make vim
 	make fonts
