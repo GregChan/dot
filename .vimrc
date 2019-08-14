@@ -14,10 +14,10 @@ set shiftwidth=2
 set expandtab
 set splitright
 
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=1
+"set foldmethod=indent
+"set foldnestmax=10
+"set nofoldenable
+"set foldlevel=1
 
 "auto relaod vimrc when it changes
 augroup reload_vimrc " {
@@ -37,6 +37,18 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
+""Autocomplete
+Plug 'scrooloose/nerdcommenter'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'ternjs/tern_for_vim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 call plug#end()
 
 "set background=light
@@ -73,6 +85,9 @@ let NERDTreeShowHidden=1
 let NERDTreeWinPos="left"
 map <C-j> :NERDTreeToggle<CR>
 
+"Deoplete
+let g:deoplete#enable_at_startup = 1
+
 "" ALE Settings
 
 """ Lint Settings
@@ -84,7 +99,7 @@ let g:ale_javascript_eslint_executable='eslint_d'
 """ Fix Settings
 let g:ale_fix_on_save=1
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'remove_trailing_lines'],
+\   'javascript': ['prettier', 'eslint', 'remove_trailing_lines'],
 \ }
 
 " Strip Whitespace on Save
@@ -97,6 +112,8 @@ function! StripTrailingWhitespaces()
   let @/=_s
   call cursor(l, c)
 endfunction
+
+nnoremap gp :silent %!prettier --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
 
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
