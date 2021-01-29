@@ -1,0 +1,107 @@
+OS_NAME := $(shell uname -s | tr A-Z a-z)
+DARWIN = darwin
+
+ERROR_MAC_ONLY = "This is a macOS only application!"
+
+setup:
+	# make brew
+	# make pyenv
+	# make coreutils
+	# make shell
+	# make neovim
+
+create-symlinks:
+	ln -s $(realpath zshrc) ~/.zshrc
+	ln -s $(realpath vimrc) ~/.config/nvim/init.vim
+	ln -s $(realpath vimrc) ~/.ideavimrc
+
+remove-symlinks:
+	rm ~/.zshrc
+	rm ~/.ideavimrc
+	rm ~/.config/nvim/init.vim
+	
+## SETUP
+brew:
+	curl -fsSLO https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+	sh ./install.sh
+	rm ./install.sh
+
+coreutils:
+	brew install coreutils
+
+pyenv:
+	brew update
+	brew install pyenv
+	pyenv install 3.9.1
+	pyenv global 3.9.1
+
+shell:
+	make powerline-shell
+	make powerline-fonts
+	echo "source $$(realpath profile)" >> ~/.bash_profile
+	ln -s $(realpath zshrc) ~/.zshrc
+
+## APPLICATIONS
+
+# Window Manager
+amethyst:
+ifeq ($(OS_NAME), $(DARWIN))
+	brew cask install amethyst
+else
+	echo $(ERROR_MAC_ONLY)
+endif
+
+ctags:
+ifeq ($(OS_NAME), $(DARWIN))
+	brew install ctags
+else
+	echo $(ERROR_MAC_ONLY)
+endif
+
+ripper-tags:
+	gem install ripper-tags -v 0.8.1
+
+fzf:
+ifeq ($(OS_NAME), $(DARWIN))
+	brew install fzf
+else
+	echo $(ERROR_MAC_ONLY)
+endif
+
+mosh:
+ifeq ($(OS_NAME), $(DARWIN))
+	brew install mosh
+endif
+
+# Text Editors
+neovim:
+ifeq ($(OS_NAME), $(DARWIN))
+	brew install neovim
+endif
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	mkdir -p ~/.config/nvim
+	ln -s $(realpath vimrc) ~/.config/nvim/init.vim
+	ln -s $(realpath vimrc) ~/.ideavimrc
+
+powerline-shell:
+	python3 -m pip install powerline-shell
+	ln -fs $(realpath powerline-shell.json) ~/.powerline-shell.json
+
+powerline-fonts:
+	git clone https://github.com/powerline/fonts.git --depth=1
+	cd fonts && ./install.sh
+	rm -rf fonts
+
+rectangle:
+	brew install --cask rectangle
+
+the-silver-searcher:
+ifeq ($(OS_NAME),$(DARWIN))
+	brew install the_silver_searcher
+endif
+
+zsh:
+	# brew install zsh
+	curl -O https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	./install.sh
+	rm ./install.sh

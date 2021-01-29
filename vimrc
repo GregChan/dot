@@ -8,6 +8,7 @@ set textwidth=0
 set linebreak
 
 imap jk <Esc>
+map <C-p> :Files<Enter>
 
 set tabstop=2
 set shiftwidth=2
@@ -27,25 +28,30 @@ augroup END " }
 
 "Plug
 call plug#begin()
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'maksimr/vim-jsbeautify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
-"set background=light
-set background=dark
+"Terminal Theme
 let base16colorspace=256
-
+if has("termguicolors")
+    set termguicolors
+endif
+colorscheme base16-default-dark
 "colorscheme solarized
 "colorscheme base16-solarized-dark
-colorscheme base16-solarized-light
+"colorscheme base16-solarized-light
 
 "Airline
 set laststatus=2
@@ -57,16 +63,6 @@ let g:airline#extensions#tabline#left_sep=''
 let g:airline#extensions#tabline#left_alt_sep=''
 let g:airline#extensions#tabline#right_sep=''
 let g:airline#extensions#tabline#right_alt_sep=''
-
-"CtrlP Setting
-let g:ctrlp_show_hidden=1
-let g:ctrlp_clear_cache_on_exit=0
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git\|node_modules\|log\|\.gradle\|bower_components\',
-  \ 'file': '\.swp|\.dat|\.DS_Store|\.swo'
-  \ }
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_max_files=1000000000
 
 "Nerd Tree
 let NERDTreeShowHidden=1
@@ -87,6 +83,12 @@ let g:ale_fixers = {
 \   'javascript': ['eslint', 'remove_trailing_lines'],
 \ }
 
+let g:ale_pattern_options_enabled = 1
+
+let g:ale_pattern_options = {
+\ 'pay-server/.*\.rb$': { 'ale_ruby_rubocop_executable': 'scripts/bin/rubocop-daemon/rubocop' },
+\}
+
 " Strip Whitespace on Save
 autocmd BufWritePre * :call StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
@@ -98,5 +100,6 @@ function! StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
+""" Tags for ruby
+let g:gutentags_ctags_executable_ruby = 'ripper-tags'
+let g:gutentags_ctags_extra_args = ['--ignore-unsupported-options', '--recursive']
