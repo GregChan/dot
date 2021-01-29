@@ -4,11 +4,11 @@ DARWIN = darwin
 ERROR_MAC_ONLY = "This is a macOS only application!"
 
 setup:
-	# make brew
-	# make pyenv
-	# make coreutils
-	# make shell
-	# make neovim
+	make brew
+	make pyenv
+	make coreutils
+	make shell
+	make neovim
 
 create-symlinks:
 	ln -s $(realpath zshrc) ~/.zshrc
@@ -19,7 +19,7 @@ remove-symlinks:
 	rm ~/.zshrc
 	rm ~/.ideavimrc
 	rm ~/.config/nvim/init.vim
-	
+
 ## SETUP
 brew:
 	curl -fsSLO https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
