@@ -7,6 +7,7 @@
     "hg",
     "jobs",
     "root",
+    "node_version",
     "newline",
     "aws_profile"
   ],
