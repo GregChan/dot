@@ -4,11 +4,11 @@ DARWIN = darwin
 ERROR_MAC_ONLY = "This is a macOS only application!"
 
 setup:
-	make brew
-	make pyenv
-	make coreutils
-	make shell
-	make neovim
+	make -f macOS_makefile brew
+	make -f macOS_makefile pyenv
+	make -f macOS_makefile coreutils
+	make -f macOS_makefile shell
+	make -f macOS_makefile neovim
 
 create-symlinks:
 	ln -s $(realpath zshrc) ~/.zshrc
@@ -39,8 +39,8 @@ pyenv:
 	pyenv global 3.9.1
 
 shell:
-	make powerline-shell
-	make powerline-fonts
+	make -f macOS_makefile powerline-shell
+	make -f macOS_makefile powerline-fonts
 	echo "source $$(realpath profile)" >> ~/.bash_profile
 	ln -s $(realpath zshrc) ~/.zshrc
 
