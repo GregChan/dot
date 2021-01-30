@@ -29,6 +29,9 @@ brew:
 coreutils:
 	brew install coreutils
 
+n:
+	curl -L https://git.io/n-install | bash
+
 pyenv:
 	brew update
 	brew install pyenv
