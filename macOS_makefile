@@ -22,9 +22,7 @@ remove-symlinks:
 
 ## SETUP
 brew:
-	curl -fsSLO https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-	sh ./install.sh
-	rm ./install.sh
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 coreutils:
 	brew install coreutils
